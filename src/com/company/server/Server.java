@@ -17,10 +17,11 @@ public class Server {
         PrintWriter printWriter = new PrintWriter(outputStream);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         while (true) {
-            if (bufferedReader.ready()) {
                 String str = bufferedReader.readLine();
                 System.out.println("date is " + str);
-            }
+                if (bufferedReader.ready()){
+                    continue;
+                }
             String a = scanner.next();
             printWriter.println(a);
             printWriter.flush();
