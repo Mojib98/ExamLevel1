@@ -14,9 +14,9 @@ public class Client {
     public Client() throws IOException {
     }
     public void client() throws IOException {
-        OutputStream outputStream = OutputStream.nullOutputStream(socket.getOutputStream());
+     /*   OutputStream outputStream = OutputStream.nullOutputStream(socket.getOutputStream());
         PrintWriter printWriter = new PrintWriter(outputStream);
-        printWriter.write("hhhhhh");
+        printWriter.write("hhhhhh");*/
 
     }
 
