@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Client {
 
     public static void main(String[] args) throws IOException {
-        // write your code here
         try {
             Scanner scanner = new Scanner(System.in);
             String host = "localhost";
@@ -21,13 +20,26 @@ public class Client {
             OutputStreamWriter outputStream = new OutputStreamWriter(socket.getOutputStream());
             PrintWriter printWriter = new PrintWriter(outputStream);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            while (true) {
+            Thread sender = new Thread(new Runnable() {
+                String massage;
+                @Override
+                public void run() {
+                    while (true) {
+                        massage = scanner.next();
+                        printWriter.println(massage);
+                        printWriter.flush();
+                    }
+                }
+            });
+
+
+         /*   while (true) {
                 String a = scanner.next();
                 printWriter.println(a);
                 printWriter.flush();
                     String str = bufferedReader.readLine();
                     System.out.println("you have massege " + str);
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }

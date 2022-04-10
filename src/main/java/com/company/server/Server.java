@@ -35,7 +35,7 @@ public class Server {
                 try {
                     mas = bufferedReader.readLine();
                     while (mas !=null) {
-                        System.out.println("massage from Server: " + mas);
+                        System.out.println("massage from clint: " + mas);
                         mas = bufferedReader.readLine();
                     }
                 } catch (IOException e) {
@@ -45,7 +45,7 @@ public class Server {
         });
         Resive.start();
 
-        while (true) {
+/*        while (true) {
             String a = scanner.next();
             printWriter.println(a);
             printWriter.flush();
@@ -53,7 +53,7 @@ public class Server {
                 String str = bufferedReader.readLine();
                 System.out.println("you have massege " + str);
             }
-        }
+        }*/
 
     }
 }
