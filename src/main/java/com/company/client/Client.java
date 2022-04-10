@@ -25,12 +25,13 @@ public class Client {
                 @Override
                 public void run() {
                     while (true) {
-                        massage = scanner.next();
+                        massage = scanner.nextLine();
                         printWriter.println(massage);
                         printWriter.flush();
                     }
                 }
             });
+            sender.start();
             Thread resive = new Thread(new Runnable() {
                 String mas;
                 @Override
@@ -47,6 +48,7 @@ public class Client {
                     }
                 }
             });
+            resive.start();
 
 
          /*   while (true) {

@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Server {
     public static void main(String[] args) throws IOException {
+        try {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("server connection");
@@ -31,7 +32,6 @@ public class Server {
         sender.start();
         Thread Resive = new Thread(new Runnable() {
             String mas;
-
             @Override
             public void run() {
                 try {
@@ -40,6 +40,12 @@ public class Server {
                         System.out.println("massage from clint: " + mas);
                         mas = bufferedReader.readLine();
                     }
+
+              /*      System.out.println("Client fail");
+
+                    printWriter.close();
+                    socket.close();
+                    serverSocket.close();*/
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -57,5 +63,8 @@ public class Server {
             }
         }*/
 
-    }
+    }catch (Exception e){
+            e.printStackTrace();
+        }
+}
 }
