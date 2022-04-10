@@ -21,9 +21,11 @@ public class Server {
             String msg;
             @Override
             public void run() {
-                      msg=scanner.nextLine();
-                      printWriter.println(msg);
-                      printWriter.flush();
+                while (true) {
+                    msg = scanner.nextLine();
+                    printWriter.println(msg);
+                    printWriter.flush();
+                }
             }
         });
         sender.start();

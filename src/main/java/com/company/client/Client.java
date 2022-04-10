@@ -31,6 +31,22 @@ public class Client {
                     }
                 }
             });
+            Thread resive = new Thread(new Runnable() {
+                String mas;
+                @Override
+                public void run() {
+
+                    try {
+                        mas = bufferedReader.readLine();
+                        while (mas !=null) {
+                            System.out.println("massage from Server: " + mas);
+                            mas = bufferedReader.readLine();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
 
          /*   while (true) {
