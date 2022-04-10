@@ -16,6 +16,35 @@ public class Server {
         OutputStreamWriter outputStream = new OutputStreamWriter(socket.getOutputStream());
         PrintWriter printWriter = new PrintWriter(outputStream);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+        Thread sender = new Thread(new Runnable() {
+            String msg;
+            @Override
+            public void run() {
+                      msg=scanner.nextLine();
+                      printWriter.println(msg);
+                      printWriter.flush();
+            }
+        });
+        sender.start();
+        Thread Resive = new Thread(new Runnable() {
+            String mas;
+
+            @Override
+            public void run() {
+                try {
+                    mas = bufferedReader.readLine();
+                    while (mas !=null) {
+                        System.out.println("massage from Server: " + mas);
+                        mas = bufferedReader.readLine();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Resive.start();
+
         while (true) {
             String a = scanner.next();
             printWriter.println(a);

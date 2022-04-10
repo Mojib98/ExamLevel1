@@ -8,6 +8,8 @@ public class Main {
         hibernate.ftech(1);
         hibernate.ftech(2);
         hibernate.ftech(2);
+        Hibernate hibernate1 = new Hibernate();
+        hibernate.ftech(2);
 
 
 }
